@@ -8,5 +8,6 @@ namespace VirtualPetShelter
 {
     abstract class Employee
     {
+        public string EmployerName { get; set; }
     }
 }
