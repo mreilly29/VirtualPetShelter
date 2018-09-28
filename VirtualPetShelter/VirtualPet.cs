@@ -50,7 +50,7 @@ namespace VirtualPetShelter
         public void Cuddle()
         {
             Affection += 7;
-            Console.WriteLine("You cuddled with {0}.", Name);
+            Console.WriteLine("You cuddled with {0}.", PetName);
             Console.WriteLine();
         }
     }

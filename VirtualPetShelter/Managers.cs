@@ -28,10 +28,15 @@ namespace VirtualPetShelter
         }
         public void AdoptPet()
         {
+            int i = 1;
+            Console.WriteLine("Make a selection:");
+            foreach(string pet in VirtualPetShelter.Pets)
+            {
+                Console.WriteLine(i + ". " + pet);
+                i++;
+            }
             
             // display pet name + description of pet
-            Console.WriteLine("You adopted a pet!");
-
         }
 
         public void PetStatus()
