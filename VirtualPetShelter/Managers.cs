@@ -36,15 +36,15 @@ namespace VirtualPetShelter
         }
         public void AdoptPet()
         {
-        //    int i = 1;
-        //    Console.WriteLine("Make a selection:");
-        //    foreach(string pet in VirtualPetShelter.Pets)
-        //    {
-        //        Console.WriteLine(i + ". " + pet);
-        //        i++;
-        //    }
-
-        //    // display pet name + description of pet
+            int i = 1;
+            Console.WriteLine("Select the dog you want to adopt");
+            foreach (string pet in VirtualPetShelter.AllPets)
+            {
+                Console.WriteLine(i + ". " + pet);
+                i++;
+            }
+            
+            // display pet name + description of pet
         }        
     }
 }
