@@ -16,15 +16,22 @@ namespace VirtualPetShelter
             Pet harry = new Pet("Harry", "2 years old. Energetic and lovable. Loves to cuddle.", "Beagle", "wet food", 67 , 85, 43);
             Pet dingle = new Pet("Dingle", "1.5 years old. Talkative and needs lots of exercise!", "Husky", "wet food", 33, 76, 87);
             Pet lola = new Pet("Lola", "8 years old. Couch potato looking for someone to chill with.", "Boxer", "dry food", 88, 53, 79);
+            VirtualPetShelter.AllPets.Add(harry.PetName);
+            VirtualPetShelter.AllPets.Add(dingle.PetName);
+            VirtualPetShelter.AllPets.Add(lola.PetName);
+            Console.WriteLine("Make a selection:");            
+
             Volunteers tiffany = new Volunteers("Tiffany", "Pro Volunteer");
             Managers greg = new Managers("Greg", 7);
+            VirtualPetShelter.AllEmployees.Add(tiffany.EmployeeName);
+            VirtualPetShelter.AllEmployees.Add(greg.EmployeeName);
 
-            Console.WriteLine("Welcome to Dogs-R-Cool Virtual Pet Shelter. \nWhat employee type are you? \n1) Volunteer \n2) Manager");
+            Console.WriteLine("Welcome to Dogs-R-Cool Virtual Pet Shelter. \nWhat employee type are you? \n1) Volunteer \n2) Manager\n");
             int input = int.Parse(Console.ReadLine());
 
             if (input == 1)
             {
-                Console.WriteLine("Thank you for volunteering {0}!", tiffany.EmployeeName);
+                Console.WriteLine("\nThank you for volunteering {0}!", tiffany.EmployeeName);
                 isManager = false;
             }
             else if (input == 2)
@@ -43,7 +50,7 @@ namespace VirtualPetShelter
                 Console.WriteLine("1. Feed the pets");
                 Console.WriteLine("2. Give the pets water");
                 Console.WriteLine("3. Play with a pet");
-                Console.WriteLine("4. Quit");
+                Console.WriteLine("4. Quit\n");
                 int option = int.Parse(Console.ReadLine());
                 switch (option)
                 {
@@ -55,7 +62,7 @@ namespace VirtualPetShelter
                         break;
                     case 3:
                         Console.WriteLine("Which pet would you like to play with?");
-                        Console.WriteLine("1. {0}\n2. {1}\n3. {2}", harry.PetName, dingle.PetName, lola.PetName);
+                        Console.WriteLine("1. {0}\n2. {1}\n3. {2}\n", harry.PetName, dingle.PetName, lola.PetName);
                         int value = int.Parse(Console.ReadLine());
                         if (value == 1)
                         {
@@ -74,7 +81,7 @@ namespace VirtualPetShelter
                         else { Console.WriteLine("invalid entry."); }
                         break;
                     case 4:
-                        Console.WriteLine("Thanks for volunteering! Come back soon!");
+                        Console.WriteLine("\nThanks for volunteering! Come back soon!");
                         isVolunteer = false;
                         break;
                     default:
@@ -89,7 +96,7 @@ namespace VirtualPetShelter
                 Console.WriteLine("1. Adopt a pet");
                 Console.WriteLine("2. Pay the bills");
                 Console.WriteLine("3. Play with a pet");
-                Console.WriteLine("4. Quit");
+                Console.WriteLine("4. Quit\n");
                 int optionTwo = int.Parse(Console.ReadLine());
                 switch (optionTwo)
                 {
@@ -127,17 +134,7 @@ namespace VirtualPetShelter
                     default:
                         break;
                 }
-            }
-            
-
-
-            //VirtualPetShelter.Pets.Add(harry.PetName);
-            //VirtualPetShelter.Pets.Add(dingle.PetName);
-            //VirtualPetShelter.Pets.Add(lola.PetName);
-            //Managers man = new Managers();
-            //man.AdoptPet();
+            }            
         }
-
-
     } 
 }

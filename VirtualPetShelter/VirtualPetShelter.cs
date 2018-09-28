@@ -8,13 +8,14 @@ namespace VirtualPetShelter
 {
     public static class VirtualPetShelter
     {
-        public static List<string> Pets { get; set; }
-        
-       public static List<string> AllEmployees { get; set; }
+        public static List<string> AllPets = new List<string>();
+        //{ get; set; }
+
+        public static List<string> AllEmployees = new List<string>();
 
         static VirtualPetShelter()
         {
-
+            
         }
     }
 }
