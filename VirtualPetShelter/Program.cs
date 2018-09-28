@@ -10,6 +10,7 @@ namespace VirtualPetShelter
     {
         static void Main(string[] args)
         {
+            
         }
-    }
+    } 
 }

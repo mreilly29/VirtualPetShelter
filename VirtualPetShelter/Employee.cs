@@ -8,6 +8,17 @@ namespace VirtualPetShelter
 {
     abstract class Employee
     {
-        public string EmployerName { get; set; }
+        //PROPERTIES
+        public string EmployeeName { get; set; }
+
+        //CONSTRUCTOR
+        public Employee()
+        {
+        }
+
+        //abstract method      
+        abstract public void ClockIn();
+        abstract public void ShowID();
+
     }
 }

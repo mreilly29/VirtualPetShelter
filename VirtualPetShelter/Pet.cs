@@ -8,8 +8,11 @@ namespace VirtualPetShelter
 {
     class Pet : VirtualPet
     {
+        //PROPERTIES
         public string PetType { get; set; }
+        public string Diet{ get; set; }
 
+        //CONSTRUCTOR
         public Pet()
         {
         }
