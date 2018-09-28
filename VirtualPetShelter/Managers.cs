@@ -28,7 +28,10 @@ namespace VirtualPetShelter
         }
         public void AdoptPet()
         {
+            
             // display pet name + description of pet
+            Console.WriteLine("You adopted a pet!");
+
         }
 
         public void PetStatus()

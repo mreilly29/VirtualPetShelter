@@ -11,5 +11,10 @@ namespace VirtualPetShelter
         static List<string> AllPets { get; set; }
         
         static List<string> AllEmployees { get; set; }
+
+        static VirtualPetShelter()
+        {
+
+        }
     }
 }
