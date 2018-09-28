@@ -9,13 +9,17 @@ namespace VirtualPetShelter
     class Managers:Employee
     {
         //PROPERTIES
-        public int Salary { get; set; }
+        public int YearsEmployed { get; set; }
 
         //CONSTRUCTOR
         public Managers()
         {
         }
-
+        public Managers(string name, int years)
+        {
+            EmployeeName = name;
+            YearsEmployed = years;
+        }
         //METHODS
         public override void ClockIn()
         {
@@ -26,22 +30,21 @@ namespace VirtualPetShelter
         {
             Console.WriteLine("Welcome Bob, your ID picture looks very handsome.");
         }
+        public void Play(string pet)
+        {
+            Console.WriteLine("You played with {0}", pet);
+        }
         public void AdoptPet()
         {
-            int i = 1;
-            Console.WriteLine("Make a selection:");
-            foreach(string pet in VirtualPetShelter.Pets)
-            {
-                Console.WriteLine(i + ". " + pet);
-                i++;
-            }
-            
-            // display pet name + description of pet
-        }
+        //    int i = 1;
+        //    Console.WriteLine("Make a selection:");
+        //    foreach(string pet in VirtualPetShelter.Pets)
+        //    {
+        //        Console.WriteLine(i + ". " + pet);
+        //        i++;
+        //    }
 
-        public void PetStatus()
-        {
-            //FILL IN
-        }
+        //    // display pet name + description of pet
+        }        
     }
 }

@@ -19,6 +19,5 @@ namespace VirtualPetShelter
         //abstract method      
         abstract public void ClockIn();
         abstract public void ShowID();
-
     }
 }

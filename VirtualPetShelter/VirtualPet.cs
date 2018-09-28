@@ -24,34 +24,36 @@ namespace VirtualPetShelter
             PetName = name;
             PetDescription = desciption;
         }
-        public VirtualPet(int hunger, int thirst, int affection)
+        public VirtualPet(string name, string desciption, int hunger, int thirst, int affection)
         {
+            PetName = name;
+            PetDescription = desciption;
             Hunger = hunger;
             Thirst = thirst;
             Affection = affection;
         }
 
         //METHODS
-        public void Feed()
-        {
-            Hunger += 7;
-            Thirst -= 2;
-            Affection--;
-            Console.WriteLine("You fed {0}.", PetName);
-            Console.WriteLine();
-        }
-        public void Drink()
-        {
-            Thirst += 10;
-            Affection--;
-            Console.WriteLine("You gave {0} water.", PetName);
-            Console.WriteLine();
-        }
-        public void Cuddle()
-        {
-            Affection += 7;
-            Console.WriteLine("You cuddled with {0}.", PetName);
-            Console.WriteLine();
-        }
+        //public void Feed()
+        //{
+        //    Hunger += 7;
+        //    Thirst -= 2;
+        //    Affection--;
+        //    Console.WriteLine("You fed {0}.", PetName);
+        //    Console.WriteLine();
+        //}
+        //public void Drink()
+        //{
+        //    Thirst += 10;
+        //    Affection--;
+        //    Console.WriteLine("You gave {0} water.", PetName);
+        //    Console.WriteLine();
+        //}
+        //public void Play()
+        //{
+        //    Affection += 7;
+        //    Console.WriteLine("You cuddled with {0}.", PetName);
+        //    Console.WriteLine();
+        //}
     }
 }

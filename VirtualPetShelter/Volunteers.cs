@@ -9,11 +9,16 @@ namespace VirtualPetShelter
     class Volunteers:Employee
     {
         //PROPERTY
-        public string Specialty { get; set; }
+        public string VolunteerRank { get; set; }
         
         //CONSTRUCTOR
         public Volunteers()
         {
+        }
+        public Volunteers(string name, string rank)
+        {
+            EmployeeName = name;
+            VolunteerRank = rank;
         }
         //METHODS
         public void FeedAll()
@@ -26,9 +31,9 @@ namespace VirtualPetShelter
             Console.WriteLine("All pets have gotten water.");
         }
 
-        public void Cuddle(string pet)
+        public void Play(string pet)
         {
-            Console.WriteLine("You cuddled with {0}", pet);
+            Console.WriteLine("You played with {0}", pet);
         }
 
         public void PetStatus()

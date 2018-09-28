@@ -16,15 +16,12 @@ namespace VirtualPetShelter
         public Pet()
         {
         }
-        public Pet(string name, string desciption,string type, string diet)
+        public Pet(string name, string desciption,string type, string diet, int hunger, int thirst, int affection)
         {
             PetName = name;
             PetDescription = desciption;
             PetType = type;
             Diet = diet;
-        }
-        public Pet(int hunger, int thirst, int affection)
-        {
             Hunger = hunger;
             Thirst = thirst;
             Affection = affection;
