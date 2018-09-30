@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VirtualPetShelter
+namespace VPShelter
 {
     class Volunteers:Employee
     {
@@ -54,7 +54,7 @@ namespace VirtualPetShelter
             dog.PlayTime();
             Console.WriteLine("\nYou played with {0}\n", dog.PetName);
         }
- //override methods
+        //override methods
         public override void ClockIn()
         {
             Console.WriteLine(EmployeeName + " clocked in at 8:00AM");

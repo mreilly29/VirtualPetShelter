@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VirtualPetShelter
+namespace VPShelter
 {
     class Managers:Employee
     {
@@ -40,6 +40,7 @@ namespace VirtualPetShelter
 
         public void AdoptPet(int element)
         {
+            //removes pet from list
             VirtualPetShelter.AllPets.RemoveAt(element);
         }
     }

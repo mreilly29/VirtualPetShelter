@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VirtualPetShelter
+namespace VPShelter
 {
     class Program
-    {
-       
+    {       
         static void Main(string[] args)
         {
             //bools for while loops
@@ -32,16 +31,16 @@ namespace VirtualPetShelter
             VirtualPetShelter.AllEmployees.Add(greg);
 
             //asks user to input which employee type they are
-            Console.WriteLine("Welcome to Dogs-R-Cool Virtual Pet Shelter. \nWhat employee type are you? \n1) Volunteer \n2) Manager\n");
+            Console.WriteLine("Welcome to Dogs-R-Cool Virtual Pet Shelter. \nWhat employee type are you? \n1. Volunteer \n2. Manager\n");
             int input = int.Parse(Console.ReadLine());
             
-            if (input == 1)//enter 1, user is volunteer
+            if (input == 1)  //enter 1, user is volunteer
             {
                 Console.WriteLine("\nThank you for volunteering {0}!", tiffany.EmployeeName);
                 //changes isManager to false. Will not enter into while loop for manager 
                 isManager = false;
             }
-            else if (input == 2)//enter 1, user is manager
+            else if (input == 2)  //enter 1, user is manager
             {
                 Console.WriteLine("Thank you for working at Dogs-R-Cool Virtual Pet Shelter!");
                 //changes isVolunteer to false. Will not enter into while loop for volunteer 
@@ -63,6 +62,7 @@ namespace VirtualPetShelter
                 //displays menu options for volunteer choose from
                 VolunteerMenu();
                 int option = int.Parse(Console.ReadLine());
+
                 //an action will happen based on selected menu item
                 switch (option)
                 {
@@ -101,6 +101,7 @@ namespace VirtualPetShelter
                 //displays manager menu of options to choose from
                 ManagerMenu();
                 int inputTwo = int.Parse(Console.ReadLine());
+
                 //an action will happen based on selected menu item
                 switch (inputTwo)
                 {
@@ -121,7 +122,7 @@ namespace VirtualPetShelter
                         }
                         //takes in input to use as index in list
                         int value = int.Parse(Console.ReadLine()) - 1;
-                        //selects pet from the list in VirtualPetShelter at the element index of value
+                        //selects pet from the list in VirtualPetShelter at the element index of int value
                         Pet adoptedPet = VirtualPetShelter.AllPets.ElementAt(value);
                         Console.WriteLine("{0} was adopted!", adoptedPet.PetName);
                         //calls AdoptPet method - uses parameter to remove pet at that index of the list
