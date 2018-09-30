@@ -11,154 +11,180 @@ namespace VirtualPetShelter
        
         static void Main(string[] args)
         {
+            //bools for while loops
             bool isVolunteer = true;
             bool isManager = true;
 
-            //instantiate 3 pets
-            Pet harry = new Pet("Harry", "2 years old. Energetic and lovable. Loves to cuddle.", "Beagle", "wet food", 67 , 85, 43);
+            //instantiate 3 pet objects
+            Pet harry = new Pet("Harry", "2 years old. Energetic and lovable. Loves to cuddle!", "Beagle", "wet food", 67, 85, 43);
             Pet dingle = new Pet("Dingle", "1.5 years old. Talkative and needs lots of exercise!", "Husky", "wet food", 33, 76, 87);
             Pet lola = new Pet("Lola", "8 years old. Couch potato looking for someone to chill with.", "Boxer", "dry food", 88, 53, 79);
-            //instantiate 2 employees: 1 volunteer, 1 manager
+            //instantiate 1 volunteer object and 1 manager object
             Volunteers tiffany = new Volunteers("Tiffany", "Pro Volunteer");
             Managers greg = new Managers("Greg", 7);
 
-            //add pet names to static list
-            VirtualPetShelter.AllPets.Add(harry.PetName);
-            VirtualPetShelter.AllPets.Add(dingle.PetName);
-            VirtualPetShelter.AllPets.Add(lola.PetName); 
-            //add employees static list
-            VirtualPetShelter.AllEmployees.Add(tiffany.EmployeeName);
-            VirtualPetShelter.AllEmployees.Add(greg.EmployeeName);
+            //add pet names to static list in VirtualPetShelter
+            VirtualPetShelter.AllPets.Add(harry);
+            VirtualPetShelter.AllPets.Add(dingle);
+            VirtualPetShelter.AllPets.Add(lola);
+            //add employees static list in VirtualPetShelter
+            VirtualPetShelter.AllEmployees.Add(tiffany);
+            VirtualPetShelter.AllEmployees.Add(greg);
 
+            //asks user to input which employee type they are
             Console.WriteLine("Welcome to Dogs-R-Cool Virtual Pet Shelter. \nWhat employee type are you? \n1) Volunteer \n2) Manager\n");
             int input = int.Parse(Console.ReadLine());
-
-            if (input == 1)
+            
+            if (input == 1)//enter 1, user is volunteer
             {
                 Console.WriteLine("\nThank you for volunteering {0}!", tiffany.EmployeeName);
+                //changes isManager to false. Will not enter into while loop for manager 
                 isManager = false;
             }
-            else if (input == 2)
+            else if (input == 2)//enter 1, user is manager
             {
                 Console.WriteLine("Thank you for working at Dogs-R-Cool Virtual Pet Shelter!");
+                //changes isVolunteer to false. Will not enter into while loop for volunteer 
                 isVolunteer = false;
             }
             else
             {
+                //if user input is invalid 
                 Console.WriteLine("Invalid entry.");
                 isManager = false;
                 isVolunteer = false;
             }
 
-            while (isVolunteer == true) {
-                // tiffany.PetStatus();
-                Console.WriteLine("\nWhat would you like to do?");
-                Console.WriteLine("1. Feed the pets");
-                Console.WriteLine("2. Give the pets water");
-                Console.WriteLine("3. Play with a pet");
-                Console.WriteLine("4. Quit\n");
+            //Enters loop if isVolunteer is true
+            while (isVolunteer == true)
+            {
+                //displays current status of pets
+                tiffany.PetStatus(VirtualPetShelter.AllPets);
+                //displays menu options for volunteer choose from
+                VolunteerMenu();
                 int option = int.Parse(Console.ReadLine());
+                //an action will happen based on selected menu item
                 switch (option)
                 {
-                    case 1:
-                        tiffany.FeedAll();
+                    case 1: //feed all pets
+                        tiffany.FeedAll(VirtualPetShelter.AllPets);
                         break;
-                    case 2:
-                        tiffany.WaterAll();
+
+                    case 2: //Water all pets
+                        tiffany.WaterAll(VirtualPetShelter.AllPets);
                         break;
-                    case 3:
-                        Console.WriteLine("Which pet would you like to play with?");
-                        Console.WriteLine("1. {0}\n2. {1}\n3. {2}\n", harry.PetName, dingle.PetName, lola.PetName);
-                        int value = int.Parse(Console.ReadLine());
-                        if (value == 1)
-                        {
-                            tiffany.Play(harry.PetName);
-                            harry.Affection += 10;
-                        } else if (value == 2)
-                        {
-                            tiffany.Play(dingle.PetName);
-                            dingle.Affection += 10;
-                        }
-                        else if (value == 3)
-                        {
-                            tiffany.Play(lola.PetName);
-                            lola.Affection += 10;
-                        }
-                        else { Console.WriteLine("invalid entry."); }
+
+                    case 3: //Play with pet                       
+                        DisplayNames();
+                        //takes in input to use as index in list
+                        int valueOne = int.Parse(Console.ReadLine()) - 1;
+                        //selects pet from the list in VirtualPetShelter at the element index of value
+                        Pet dogPlay = VirtualPetShelter.AllPets.ElementAt(valueOne);
+                        //passes selected dog into play method
+                        tiffany.Play(dogPlay);                       
                         break;
-                    case 4:
+
+                    case 4: //exits application
                         Console.WriteLine("\nThanks for volunteering! Come back soon!");
                         isVolunteer = false;
                         break;
-                    default:
-                        break;
 
+                    default: //invalid input
+                        Console.WriteLine("Invalid entry.");
+                        break;
                 }
             }
 
-            while(isManager == true)
-            { 
-                Console.WriteLine("\nWhat would you like to do?");
-                Console.WriteLine("1. Adopt a pet");
-                Console.WriteLine("2. Pay the bills");
-                Console.WriteLine("3. Play with a pet");
-                Console.WriteLine("4. Quit\n");
+            //Enters loop if isManager is true
+            while (isManager == true)
+            {
+                //displays manager menu of options to choose from
+                ManagerMenu();
                 int inputTwo = int.Parse(Console.ReadLine());
+                //an action will happen based on selected menu item
                 switch (inputTwo)
                 {
-                    case 1:
-                        greg.AdoptPet();
-                        int value = int.Parse(Console.ReadLine());
-                        
-                        if (value == 1)
+                    case 1://Adopt a pet
+                        //enters if statement only when all pets have been adopted
+                        if (VirtualPetShelter.AllPets.Count() == 0)
                         {
-                            Console.WriteLine("{0} was adopted!", harry.PetName);
+                            Console.WriteLine("All dogs have been adopted!");
+                            break;
                         }
-                        else if (value == 2)
+                        //displays pet and their descriptions
+                        Console.WriteLine("Which pet would you like to adopt?");
+                        int i = 1;
+                        foreach (Pet dog in VirtualPetShelter.AllPets)
                         {
-                            Console.WriteLine("{0} was adopted!", dingle.PetName);
+                            Console.WriteLine("{0}. {1}: {2}", i, dog.PetName, dog.PetDescription);
+                            i++;
                         }
-                        else if (value == 3)
-                        {
-                            Console.WriteLine("{0} was adopted!", lola.PetName);
-                        }
+                        //takes in input to use as index in list
+                        int value = int.Parse(Console.ReadLine()) - 1;
+                        //selects pet from the list in VirtualPetShelter at the element index of value
+                        Pet adoptedPet = VirtualPetShelter.AllPets.ElementAt(value);
+                        Console.WriteLine("{0} was adopted!", adoptedPet.PetName);
+                        //calls AdoptPet method - uses parameter to remove pet at that index of the list
+                        greg.AdoptPet(value);
                         break;
 
-                    case 2:
+                    case 2: //pay the bills
                         Console.WriteLine("You paid the bills");
                         break;
 
-                    case 3:
-                        Console.WriteLine("Which pet would you like to play with?");
-                        Console.WriteLine("1. {0}\n2. {1}\n3. {2}", harry.PetName, dingle.PetName, lola.PetName);
-                        int valueOne = int.Parse(Console.ReadLine());
-                        if (valueOne == 1)
-                        {
-                            greg.Play(harry.PetName);
-                            harry.Affection += 10;
-                        }
-                        else if (valueOne == 2)
-                        {
-                            greg.Play(dingle.PetName);
-                            dingle.Affection += 10;
-                        }
-                        else if (valueOne == 3)
-                        {
-                            greg.Play(lola.PetName);
-                            lola.Affection += 10;
-                        }
-                        else { Console.WriteLine("invalid entry."); }
+                    case 3: //play with pet
+                        //displays pet names
+                        DisplayNames();
+                        //takes in input to use as index in list
+                        int valueOne = int.Parse(Console.ReadLine()) - 1;
+                        //selects pet from the list in VirtualPetShelter at the element index of value
+                        Pet dogPlay = VirtualPetShelter.AllPets.ElementAt(valueOne);
+                        //passes selected dog into play method
+                        greg.Play(dogPlay);
                         break;
 
-                    case 4:
+                    case 4: //exits application
                         Console.WriteLine("Have a good day!");
                         isManager = false;
                         break;
 
-                    default:
+                    default: //invalid input
+                        Console.WriteLine("Invalid entry.");
                         break;
                 }
-            }            
+            }
         }
-    } 
+
+        //method that displays menu for volunteer
+        public static void VolunteerMenu()
+        {
+            Console.WriteLine("\nWhat would you like to do?");
+            Console.WriteLine("1. Feed the pets");
+            Console.WriteLine("2. Give the pets water");
+            Console.WriteLine("3. Play with a pet");
+            Console.WriteLine("4. Quit\n");
+        }
+
+        //method that displays menu for manager
+        public static void ManagerMenu()
+        {
+            Console.WriteLine("\nWhat would you like to do?");
+            Console.WriteLine("1. Adopt a pet");
+            Console.WriteLine("2. Pay the bills");
+            Console.WriteLine("3. Play with a pet");
+            Console.WriteLine("4. Quit\n");
+        }
+
+        //method that displays pet names using list in VirtualPetShelter
+        public static void DisplayNames()
+        {
+            Console.WriteLine("\nWhich pet would you like to play with?");
+            int i = 1;
+            foreach (Pet dog in VirtualPetShelter.AllPets)
+            {
+                Console.WriteLine("{0}. {1}", i, dog.PetName);
+                i++;
+            }
+        }
+    }    
 }

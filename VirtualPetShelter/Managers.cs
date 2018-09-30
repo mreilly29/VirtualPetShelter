@@ -23,28 +23,21 @@ namespace VirtualPetShelter
         //METHODS
         public override void ClockIn()
         {
-           Console.WriteLine("Clock in time: 7:00AM");
+            Console.WriteLine("Clock in time: 7:00AM");
         }
 
         public override void ShowID()
         {
             Console.WriteLine("Welcome Bob, your ID picture looks very handsome.");
         }
-        public void Play(string pet)
+        public void Play(Pet dog)
         {
-            Console.WriteLine("You played with {0}", pet);
+            dog.PlayTime();
+            Console.WriteLine("You played with {0}", dog.PetName);
         }
-        public void AdoptPet()
+        public void AdoptPet(int element)
         {
-            int i = 1;
-            Console.WriteLine("Select the dog you want to adopt");
-            foreach (string pet in VirtualPetShelter.AllPets)
-            {
-                Console.WriteLine(i + ". " + pet);
-                i++;
-            }
-            
-            // display pet name + description of pet
-        }        
+            VirtualPetShelter.AllPets.RemoveAt(element);
+        }
     }
 }

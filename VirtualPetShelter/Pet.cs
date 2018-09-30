@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace VirtualPetShelter
 {
-    class Pet : VirtualPet
+    public class Pet : VirtualPet
     {
         //PROPERTIES
         public string PetType { get; set; }
-        public string Diet{ get; set; }
+        public string Diet { get; set; }
 
         //CONSTRUCTOR
         public Pet()
         {
         }
-        public Pet(string name, string desciption,string type, string diet, int hunger, int thirst, int affection)
+        public Pet(string name, string desciption, string type, string diet, int hunger, int thirst, int affection)
         {
             PetName = name;
             PetDescription = desciption;
@@ -25,6 +25,25 @@ namespace VirtualPetShelter
             Hunger = hunger;
             Thirst = thirst;
             Affection = affection;
+        }
+
+        public void Feed()
+        {
+            Hunger = 100;
+            Thirst -= 20;
+            Affection--; ;
+        }
+        public void Water()
+        {
+            Thirst = 100;
+            Hunger -= 20;
+            Affection--;
+        }
+        public void PlayTime()
+        {
+            Affection += 5;
+            Thirst -= 15;
+            Hunger -= 15;
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VirtualPetShelter
 {
-    class VirtualPet
+    public class VirtualPet
     {
         //PROPERTIES
         public string PetName { get; set; }

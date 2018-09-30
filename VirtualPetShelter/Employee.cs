@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace VirtualPetShelter
 {
-    abstract class Employee
-    {
+    public abstract class Employee
+    { 
         //PROPERTIES
         public string EmployeeName { get; set; }
 
