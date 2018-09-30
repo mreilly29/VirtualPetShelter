@@ -8,14 +8,14 @@ namespace VirtualPetShelter
 {
     public class VirtualPet
     {
-        //PROPERTIES
+        //propetries
         public string PetName { get; set; }
         public string PetDescription { get; set; }
         public int Hunger { get; set; }
         public int Thirst { get; set; }
         public int Affection { get; set; }
 
-        //CONSTRUCTORS
+        //constructors
         public VirtualPet()
         {
         }
@@ -32,28 +32,24 @@ namespace VirtualPetShelter
             Thirst = thirst;
             Affection = affection;
         }
-
-        //METHODS
-        //public void Feed()
-        //{
-        //    Hunger += 7;
-        //    Thirst -= 2;
-        //    Affection--;
-        //    Console.WriteLine("You fed {0}.", PetName);
-        //    Console.WriteLine();
-        //}
-        //public void Drink()
-        //{
-        //    Thirst += 10;
-        //    Affection--;
-        //    Console.WriteLine("You gave {0} water.", PetName);
-        //    Console.WriteLine();
-        //}
-        //public void Play()
-        //{
-        //    Affection += 7;
-        //    Console.WriteLine("You cuddled with {0}.", PetName);
-        //    Console.WriteLine();
-        //}
+        //methods
+        public void Feed()
+        {
+            Hunger = 100;
+            Thirst -= 20;
+            Affection--; ;
+        }
+        public void Water()
+        {
+            Thirst = 100;
+            Hunger -= 20;
+            Affection--;
+        }
+        public void PlayTime()
+        {
+            Affection += 5;
+            Thirst -= 15;
+            Hunger -= 15;
+        }
     }
 }

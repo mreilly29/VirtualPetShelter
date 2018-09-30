@@ -8,10 +8,10 @@ namespace VirtualPetShelter
 {
     class Managers:Employee
     {
-        //PROPERTIES
+        //properties
         public int YearsEmployed { get; set; }
 
-        //CONSTRUCTOR
+        //constructors
         public Managers()
         {
         }
@@ -20,7 +20,7 @@ namespace VirtualPetShelter
             EmployeeName = name;
             YearsEmployed = years;
         }
-        //METHODS
+        //override methods
         public override void ClockIn()
         {
             Console.WriteLine("Clock in time: 7:00AM");
@@ -30,11 +30,14 @@ namespace VirtualPetShelter
         {
             Console.WriteLine("Welcome Bob, your ID picture looks very handsome.");
         }
+        
+        //methods
         public void Play(Pet dog)
-        {
+        {            
             dog.PlayTime();
             Console.WriteLine("You played with {0}", dog.PetName);
         }
+
         public void AdoptPet(int element)
         {
             VirtualPetShelter.AllPets.RemoveAt(element);

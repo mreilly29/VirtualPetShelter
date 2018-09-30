@@ -8,14 +8,15 @@ namespace VirtualPetShelter
 {
     public class Pet : VirtualPet
     {
-        //PROPERTIES
+        //properties
         public string PetType { get; set; }
         public string Diet { get; set; }
 
-        //CONSTRUCTOR
+        //constructors
         public Pet()
         {
         }
+
         public Pet(string name, string desciption, string type, string diet, int hunger, int thirst, int affection)
         {
             PetName = name;
@@ -25,25 +26,6 @@ namespace VirtualPetShelter
             Hunger = hunger;
             Thirst = thirst;
             Affection = affection;
-        }
-
-        public void Feed()
-        {
-            Hunger = 100;
-            Thirst -= 20;
-            Affection--; ;
-        }
-        public void Water()
-        {
-            Thirst = 100;
-            Hunger -= 20;
-            Affection--;
-        }
-        public void PlayTime()
-        {
-            Affection += 5;
-            Thirst -= 15;
-            Hunger -= 15;
-        }
+        } 
     }
 }
